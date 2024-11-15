@@ -1,0 +1,16 @@
+#create
+import pymongo
+#write a code to connect mongodb as client
+client=pymongo.MongoClient("mongodb://localhost:27017")
+#writa a code to connect desired database over the mangodb
+db=client["ACT_DB"]
+#Write a code to connect collection tables
+coll=db["STUDENT_DETAILS"]
+#Create data in the form of dicitinary/key:value pair
+data=[{"SID":501,"SNAME":"ANU","SCOURCE":"AIML","SPHONE":"9000950022"},
+{"SID":502,"SNAME":"SRINI","SCOURCE":"AIML","SPHONE":"9000650022"},
+{"SID":503,"SNAME":"VENKET","SCOURCE":"DATA SCIENCE","SPHONE":"9000750022"},
+{"SID":504,"SNAME":"JYOTHI","SCOURCE":"DATA SCIENCE","SPHONE":"9100950022"}]
+X=coll.insert_many(data)
+print("data has been inserted into desired collection\n")
+print("Primary keys:\n",X.inserted_ids)
